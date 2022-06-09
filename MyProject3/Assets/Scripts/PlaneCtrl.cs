@@ -10,7 +10,7 @@ public class PlaneCtrl : MonoBehaviour
     float speed;
     public float normalSpeed = 10f;
     public float dashSpeed = 30f;
-    public float rotSpeed = 150f;
+    public float rotAmount= 150f;
 
     public float DashTime = 3f;
 
@@ -39,13 +39,15 @@ public class PlaneCtrl : MonoBehaviour
 	{
         pitch = Input.GetAxis("Horizontal");
         roll = Input.GetAxis("Vertical");
-        if(pitch != 0)
+        if(pitch != 0 )
 		{
-            transform.Translate(Vector3.right * pitch * speed * Time.deltaTime);
+            transform.Translate(Vector3.right * pitch * speed * Time.deltaTime, Space.World);
+			transform.rotation = Quaternion.Euler(Vector3.back * pitch * rotAmount);
 		}
-        else if(roll != 0)
+        else if(roll != 0 )
 		{
-            transform.Translate(Vector3.up * roll * speed * Time.deltaTime);
+            transform.Translate(Vector3.up * roll * speed * Time.deltaTime, Space.World);
+			transform.rotation = Quaternion.Euler( Vector3.left * roll * rotAmount);
 		}
 	}
 
