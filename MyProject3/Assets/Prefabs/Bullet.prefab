@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 501176855489851688}
   - component: {fileID: 2594385277927665290}
   - component: {fileID: -2760823717216231492}
+  - component: {fileID: -2492616554859838558}
   m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
@@ -60,9 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fd931009860f247a9d32f82eee2530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyTimer: 7
+  destroyTimer: 7
   speed: 90
   myRig: {fileID: -2760823717216231492}
+  damage: 0
 --- !u!54 &-2760823717216231492
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,8 +79,20 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-2492616554859838558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781143494638781139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478c79c79fef14b49b403c0ca8d7e78f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2189326237900227079
 PrefabInstance:
   m_ObjectHideFlags: 0

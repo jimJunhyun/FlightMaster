@@ -9,12 +9,16 @@ public class ShootBullet : MonoBehaviour
 	public float aimDist = 50f;
     public BulletFly bullet;
 	public float gap = 0.1f;
+	public int damage;
+	public Pooler pooler;
 	Vector3 direction;
 	PlaneCtrl myPlane;
-	
+	Ray ray;
+	Vector2 mousePosBuffer;
 
 	private void Start()
 	{
+		mousePosBuffer = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
 		direction = new Vector3(0,0, aimDist);
 		myPlane = transform.GetComponentInParent<PlaneCtrl>();
 		StartCoroutine(DelayShootAuto(gap));
@@ -24,13 +28,11 @@ public class ShootBullet : MonoBehaviour
 	{
 		if (Input.GetMouseButton(side))
 		{
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			direction = ray.origin + (ray.direction * aimDist);
+			mousePosBuffer = Input.mousePosition;
+			
 		}
-		if (Input.GetMouseButtonUp(side))
-		{
-			direction = new Vector3(0,0, aimDist);
-		}
+		ray = Camera.main.ScreenPointToRay(mousePosBuffer);
+		direction = ray.origin + (ray.direction * aimDist);
 	}
 	private void LateUpdate()
 	{
@@ -41,14 +43,10 @@ public class ShootBullet : MonoBehaviour
 	{
 		while (true)
 		{
-			yield return null;
-			if (!myPlane.IsDashing)
-			{
-				yield return new WaitForSeconds(gap);
-				BulletFly b = Instantiate(bullet, transform.position, Quaternion.identity);
-				b.Fire(transform.forward);
-			}
-			
+			yield return new WaitForSeconds(gap);
+			GameObject bullet = pooler.UsePool();
+			bullet.transform.position = transform.position;
+			bullet.GetComponent<BulletFly>().Fire(transform.forward, damage);
 		}
 		
 	}
