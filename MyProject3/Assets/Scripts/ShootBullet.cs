@@ -47,6 +47,7 @@ public class ShootBullet : MonoBehaviour
 			GameObject bullet = pooler.UsePool();
 			bullet.transform.position = transform.position;
 			bullet.GetComponent<BulletFly>().Fire(transform.forward, damage);
+			//Debug.Log(transform.forward);
 		}
 		
 	}

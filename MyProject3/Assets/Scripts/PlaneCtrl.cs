@@ -6,6 +6,7 @@ public class PlaneCtrl : MonoBehaviour
 {
     public Camera mainCam;
     public Animator anim;
+    PlayerDamage damager;
 
     float speed;
     public float normalSpeed = 10f;
@@ -17,7 +18,6 @@ public class PlaneCtrl : MonoBehaviour
 
 	public float rotTime = 1f;
 
-
     float pitch;
     float roll;
 
@@ -25,6 +25,7 @@ public class PlaneCtrl : MonoBehaviour
 
 	private void Start()
 	{
+        damager = GetComponent<PlayerDamage>();
         anim.SetBool("Idling", true);
         anim.SetInteger("MoveDir", 5);
         speed = normalSpeed;
@@ -96,4 +97,13 @@ public class PlaneCtrl : MonoBehaviour
         transform.position = pos;
         //transform.rotation = Quaternion.Euler( rot);
 	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if(collision.gameObject.layer == 8)
+		{
+            damager.Damage();
+		}
+	}
+
 }

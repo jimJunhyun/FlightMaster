@@ -20,13 +20,18 @@ public class BulletFly : MonoBehaviour
 	}
 	public void Fire(Vector3 dir, int dam)
 	{
-		transform.rotation = Quaternion.LookRotation(dir);
-		myRig.AddForce(dir * speed, ForceMode.Impulse);
+		myRig.velocity = Vector2.zero;
+		transform.rotation = Quaternion.LookRotation(dir, Vector2.up);
+		myRig.AddForce(transform.forward * speed, ForceMode.Impulse);
 		damage = dam;
 	}
 	IEnumerator DelayReturn(float time)
 	{
 		yield return new WaitForSeconds(time);
+		myPool.Returner();
+	}
+	private void OnCollisionEnter(Collision collision)
+	{
 		myPool.Returner();
 	}
 }
