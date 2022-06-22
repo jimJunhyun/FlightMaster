@@ -6,6 +6,7 @@ public class PlaneCtrl : MonoBehaviour
 {
     public Camera mainCam;
     public Animator anim;
+    public ParticleSystem damEff;
     PlayerDamage damager;
 
     float speed;
@@ -25,6 +26,7 @@ public class PlaneCtrl : MonoBehaviour
 
 	private void Start()
 	{
+        damEff.gameObject.SetActive(false);
         damager = GetComponent<PlayerDamage>();
         anim.SetBool("Idling", true);
         anim.SetInteger("MoveDir", 5);
@@ -96,6 +98,26 @@ public class PlaneCtrl : MonoBehaviour
         //    rot.z = Mathf.Clamp(rot.z, 360 + rotateLimit.y, 360);
         transform.position = pos;
         //transform.rotation = Quaternion.Euler( rot);
+	}
+
+    public void Dead()
+	{
+        Time.timeScale = 0;
+        //웨이브 다시 시작
+	}
+
+    public void DamAnim()
+	{
+        anim.SetTrigger("Damage");
+        damEff.gameObject.SetActive(true);
+        damEff.Play(true);
+        StartCoroutine(DelayStop());
+	}
+
+    IEnumerator DelayStop()
+	{
+        yield return new WaitForSeconds(1f);
+        damEff.Stop();
 	}
 
 	private void OnCollisionEnter(Collision collision)

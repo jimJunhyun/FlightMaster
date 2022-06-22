@@ -5,17 +5,28 @@ using UnityEngine.Events;
 
 public class TrashMove : MonoBehaviour
 {
+
     public float rotSpeed;
     public float moveSpeed;
-	public float distGap;
+	public float destGap;
 	public int MaxHp;
+	int initMaxHp;
 	int currentHp;
-	UnityEvent OnHit;
+	public UnityEvent OnHit;
+	public PoolObject myPool;
+
 
 	private void Awake()
 	{
+		initMaxHp = MaxHp;
 		currentHp = MaxHp;
-		Destroy(gameObject, distGap);
+		StartCoroutine(DelayDest());
+	}
+	private void OnEnable()
+	{
+		MaxHp = (int)(initMaxHp * LevelManager.Instance.waveMultiplier);
+		currentHp = MaxHp;
+		StartCoroutine(DelayDest());
 	}
 
 	private void Update()
@@ -24,11 +35,19 @@ public class TrashMove : MonoBehaviour
 		transform.Translate(moveSpeed * Vector3.back * Time.deltaTime, Space.World);
 	}
 
+	IEnumerator DelayDest()
+	{
+		yield return new WaitForSeconds(destGap);
+		--LevelManager.Instance.waveEnemyNum;
+		myPool.Returner();
+	}
+
 	private void LateUpdate()
 	{
 		if(currentHp <= 0)
 		{
-			Destroy(gameObject);
+			--LevelManager.Instance.waveEnemyNum;
+			myPool.Returner();
 		}
 	}
 
@@ -42,6 +61,7 @@ public class TrashMove : MonoBehaviour
 
 	private void OnBecameInvisible()
 	{
-		Destroy(gameObject);
+		--LevelManager.Instance.waveEnemyNum;
+		myPool.Returner();
 	}
 }

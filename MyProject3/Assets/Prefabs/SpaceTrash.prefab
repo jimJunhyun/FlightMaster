@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4292515311458562916}
   - component: {fileID: 6725690879169492150}
   - component: {fileID: 6920982738490127360}
+  - component: {fileID: 7772426277151430620}
   m_Layer: 8
   m_Name: SpaceTrash
   m_TagString: Untagged
@@ -62,7 +63,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &6725690879169492150
 MonoBehaviour:
@@ -76,10 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c8d7e50ec28e94a8ffc7c69860b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 90
+  rotSpeed: 15
   moveSpeed: 10
-  distGap: 4
+  destGap: 7
   MaxHp: 30
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  myPool: {fileID: 6920982738490127360}
 --- !u!114 &6920982738490127360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +97,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478c79c79fef14b49b403c0ca8d7e78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7772426277151430620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696922418044940372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8829a351a7f5a842a721ee47d7324c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gold: 100
 --- !u!1001 &3696922418069692037
 PrefabInstance:
   m_ObjectHideFlags: 0

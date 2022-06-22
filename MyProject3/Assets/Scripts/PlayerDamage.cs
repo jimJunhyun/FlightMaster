@@ -7,25 +7,43 @@ public class PlayerDamage : MonoBehaviour
 {
     public int Heart;
     int currentHeart;
+	bool isImmune;
 
-	public UnityEvent OnDamaged;
-	public UnityEvent OnDead;
+	public UnityEvent<int> OnDamaged;
 
 	private void Awake()
 	{
 		currentHeart = Heart;
 	}
-	// Update is called once per frame
+	
 	void Update()
     {
         if(currentHeart <= 0)
 		{
-			OnDead.Invoke();
+			Time.timeScale = 0;
 		}
     }
 	public void Damage()
 	{
-		--currentHeart;
-		OnDamaged.Invoke();
+		if (!isImmune)
+		{
+			--currentHeart;
+			Invoker();
+		}
+	}
+	public void Immune(float time)
+	{
+		StartCoroutine(ImmuneCount(time));
+	}
+	IEnumerator ImmuneCount(float time)
+	{
+		isImmune = true;
+		yield return new WaitForSeconds(time);
+		isImmune = false;
+	}
+	void Invoker()
+	{
+		OnDamaged.Invoke(currentHeart);
+		Immune(1f);
 	}
 }
