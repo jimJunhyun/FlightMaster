@@ -15,9 +15,13 @@ public class TrashMove : MonoBehaviour
 	public UnityEvent OnHit;
 	public PoolObject myPool;
 
+	GoldObj myGold;
+
 
 	private void Awake()
 	{
+		
+		myGold = GetComponent<GoldObj>();
 		initMaxHp = MaxHp;
 		currentHp = MaxHp;
 		StartCoroutine(DelayDest());
@@ -47,6 +51,7 @@ public class TrashMove : MonoBehaviour
 		if(currentHp <= 0)
 		{
 			--LevelManager.Instance.waveEnemyNum;
+			myGold.GoldAdd();
 			myPool.Returner();
 		}
 	}

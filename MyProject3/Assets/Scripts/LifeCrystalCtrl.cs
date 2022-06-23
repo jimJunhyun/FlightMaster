@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class LifeCrystalCtrl : MonoBehaviour
 {
-    public Transform target;
 	public ParticleSystem Shard;
 	public List<Transform> crystals = new List<Transform>();
 
 	List<MeshRenderer> cryRenderers = new List<MeshRenderer>();
-	Vector3 initPos = new Vector3();
 	private void Awake()
 	{
-		initPos = transform.position;
 		foreach (var item in crystals)
 		{
 			cryRenderers.Add(item.GetComponentInChildren<MeshRenderer>());
@@ -40,10 +37,4 @@ public class LifeCrystalCtrl : MonoBehaviour
 			item.enabled = false;
 		}
 	}
-
-	// Update is called once per frame
-	void LateUpdate()
-    {
-        transform.position = target.position + initPos;
-    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GoldObj : MonoBehaviour
 {
 	public int Gold;
-	private void OnDisable()
+	public void GoldAdd()
 	{
 		GoldCtrl.GoldAmount += (int)(Gold * LevelManager.Instance.waveMultiplier);
 	}
