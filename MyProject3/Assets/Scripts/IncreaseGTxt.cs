@@ -15,9 +15,15 @@ public class IncreaseGTxt : MonoBehaviour
 	}
 	private void Update()
 	{
-		if(currentExpressed != GoldCtrl.GoldAmount)
+		if(currentExpressed < GoldCtrl.GoldAmount) //µ· È¹µæ
 		{
-			currentExpressed = Mathf.CeilToInt(Mathf.Lerp(currentExpressed, GoldCtrl.GoldAmount, (float)currentExpressed / (GoldCtrl.GoldAmount / lerpSpd) + 0.01f));
+			currentExpressed = Mathf.CeilToInt(Mathf.Lerp(currentExpressed, GoldCtrl.GoldAmount, currentExpressed / (GoldCtrl.GoldAmount * lerpSpd * 10000)  + 0.01f));
+			txt.text = $"${currentExpressed}";
+		}
+		else if(currentExpressed > GoldCtrl.GoldAmount) //µ· ¼Òºñ
+		{
+			
+			currentExpressed = Mathf.FloorToInt(Mathf.Lerp(currentExpressed, GoldCtrl.GoldAmount, GoldCtrl.GoldAmount / ( currentExpressed * lerpSpd * 10000) + 0.01f));
 			txt.text = $"${currentExpressed}";
 		}
 	}

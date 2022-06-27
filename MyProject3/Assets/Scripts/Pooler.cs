@@ -7,6 +7,7 @@ public class Pooler : MonoBehaviour
     public List<PoolObject> poolObj = new List<PoolObject>();
 	public int poolAmount;
     List<PoolObject> poolObjs = new List<PoolObject>();
+	public bool isRandom = false;
 	private void Awake()
 	{
 		for (int i = 0; i < poolAmount; i++)
@@ -21,12 +22,32 @@ public class Pooler : MonoBehaviour
 	public GameObject UsePool()
 	{
 		
-		GameObject g = poolObjs.Find((x) => { return !x.gameObject.activeSelf; }).gameObject;
+		GameObject g ;
+		if (isRandom)
+		{
+			List<PoolObject> gs = poolObjs.FindAll((x)=> !x.gameObject.activeSelf);
+			g = gs[Random.Range(0, gs.Count)].gameObject;
+		}
+		else
+		{
+			g= poolObjs.Find((x) => {
+				return !x.gameObject.activeSelf;
+			}).gameObject;
+		}
+		
 		g.SetActive(true);
 		return g;
 	}
 	public void ReturnPool(PoolObject obj)
 	{
 		obj.gameObject.SetActive(false);
+	}
+
+	public void ReturnAll()
+	{
+		foreach (var item in poolObjs)
+		{
+			item.Returner();
+		}
 	}
 }

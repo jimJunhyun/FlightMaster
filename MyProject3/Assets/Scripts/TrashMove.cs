@@ -10,25 +10,30 @@ public class TrashMove : MonoBehaviour
     public float moveSpeed;
 	public float destGap;
 	public int MaxHp;
+	public int score;
+	int initScore;
 	int initMaxHp;
 	int currentHp;
 	public UnityEvent OnHit;
 	public PoolObject myPool;
+	public ParticleSystem DestParticle;
 
 	GoldObj myGold;
+	
 
 
 	private void Awake()
 	{
-		
 		myGold = GetComponent<GoldObj>();
 		initMaxHp = MaxHp;
+		initScore = score;
 		currentHp = MaxHp;
 		StartCoroutine(DelayDest());
 	}
 	private void OnEnable()
 	{
 		MaxHp = (int)(initMaxHp * LevelManager.Instance.waveMultiplier);
+		score = Mathf.RoundToInt( initScore * LevelManager.Instance.waveMultiplier);
 		currentHp = MaxHp;
 		StartCoroutine(DelayDest());
 	}
@@ -43,6 +48,7 @@ public class TrashMove : MonoBehaviour
 	{
 		yield return new WaitForSeconds(destGap);
 		--LevelManager.Instance.waveEnemyNum;
+		ScoreManager.Score -= score;
 		myPool.Returner();
 	}
 
@@ -51,6 +57,8 @@ public class TrashMove : MonoBehaviour
 		if(currentHp <= 0)
 		{
 			--LevelManager.Instance.waveEnemyNum;
+			ScoreManager.Score += score;
+			Instantiate(DestParticle, transform.position, DestParticle.transform.rotation);
 			myGold.GoldAdd();
 			myPool.Returner();
 		}
@@ -67,6 +75,7 @@ public class TrashMove : MonoBehaviour
 	private void OnBecameInvisible()
 	{
 		--LevelManager.Instance.waveEnemyNum;
+		ScoreManager.Score -= score;
 		myPool.Returner();
 	}
 }

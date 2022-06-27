@@ -17,9 +17,14 @@ public class TrashGenerator : MonoBehaviour
 		StartCoroutine(Generate());
 	}
 
-	IEnumerator Generate()
+	public void ResetGen()
 	{
 		genCount = LevelManager.Instance.waveEnemyNum;
+	}
+
+	IEnumerator Generate()
+	{
+		ResetGen();
 		while (true)
 		{
 			yield return new WaitForSeconds(genGap);

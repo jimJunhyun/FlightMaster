@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LevelManager : MonoBehaviour
 
 	public int waveEnemyNumBase;
 	public float waveGap;
+
+	public UnityEvent restarter;
 	[HideInInspector]
 	public float waveMultiplier;
 
@@ -18,16 +21,37 @@ public class LevelManager : MonoBehaviour
 
 	private void Awake()
 	{
+		Debug.Log("AWAKELM");
 		Instance = this;
-		currentWave = 0;
+		if(SaveManager.Load() != null)
+		{
+			currentWave = SaveManager.Load(1);
+		}
+		else
+		{
+			currentWave = 0;
+		}
+		
 		NextWave();
 	}
 
+	public void RestartWave()
+	{
+		Time.timeScale = 1;
+		waveMultiplier = 1 + Mathf.Log10(Mathf.Sqrt(Mathf.Pow(currentWave, 3f)));
+		waveEnemyNum = (int)(waveEnemyNumBase * waveMultiplier);
+		restarter.Invoke();
+	}
 
 	public void NextWave()
 	{
 		++currentWave;
 		waveMultiplier = 1 + Mathf.Log10(Mathf.Sqrt(Mathf.Pow(currentWave, 3f)));
 		waveEnemyNum = (int)(waveEnemyNumBase * waveMultiplier);
+	}
+
+	public void ResetWave()
+	{
+		currentWave = SaveManager.Load(1);
 	}
 }

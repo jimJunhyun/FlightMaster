@@ -96,10 +96,12 @@ MonoBehaviour:
   moveSpeed: 5
   destGap: 7
   MaxHp: 60
+  score: 100
   OnHit:
     m_PersistentCalls:
       m_Calls: []
   myPool: {fileID: 1690163902860444954}
+  DestParticle: {fileID: 47489893699846262, guid: 3f80ce02af18de0488bc193bdba83ee8, type: 3}
 --- !u!114 &1690163902860444954
 MonoBehaviour:
   m_ObjectHideFlags: 0

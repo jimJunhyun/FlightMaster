@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerDamage : MonoBehaviour
 {
+	public static PlayerDamage Instance;
     public int Heart;
     int currentHeart;
 	bool isImmune;
@@ -13,7 +14,17 @@ public class PlayerDamage : MonoBehaviour
 
 	private void Awake()
 	{
-		currentHeart = Heart;
+		
+		Instance = this;
+		if (SaveManager.Load() != null)
+		{
+			currentHeart = SaveManager.Load(7);
+		}
+		else
+		{
+			currentHeart = Heart;
+		}
+		
 	}
 	
 	void Update()
@@ -21,8 +32,20 @@ public class PlayerDamage : MonoBehaviour
         if(currentHeart <= 0)
 		{
 			Time.timeScale = 0;
+			LevelManager.Instance.RestartWave();
 		}
     }
+
+	public void Heal()
+	{
+		currentHeart = Heart;
+	}
+
+	public void ResetHeart()
+	{
+		currentHeart = SaveManager.Load(7);
+	}
+
 	public void Damage()
 	{
 		if (!isImmune)

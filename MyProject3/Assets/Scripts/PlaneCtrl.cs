@@ -11,13 +11,10 @@ public class PlaneCtrl : MonoBehaviour
 
     float speed;
     public float normalSpeed = 10f;
-    public float dashSpeed = 30f;
-    public float rotAmount= 150f;
 
     public Vector2 rotateLimit;
     public Vector4 positionLimit;
 
-	public float rotTime = 1f;
 
     float pitch;
     float roll;
@@ -126,6 +123,12 @@ public class PlaneCtrl : MonoBehaviour
 		{
             damager.Damage();
 		}
+	}
+
+    public void ResetPos()
+	{
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
 	}
 
 }
