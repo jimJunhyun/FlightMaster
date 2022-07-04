@@ -7,6 +7,6 @@ public class GoldObj : MonoBehaviour
 	public int Gold;
 	public void GoldAdd()
 	{
-		GoldCtrl.GoldAmount += (int)(Gold * LevelManager.Instance.waveMultiplier);
+		GoldCtrl.GoldAmount += (int)(Gold * LevelManager.Instance.waveMultiplier / 2);
 	}
 }

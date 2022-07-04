@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
 		if(SaveManager.Load() != null)
 		{
 			currentWave = SaveManager.Load(1);
+			--currentWave;
 		}
 		else
 		{

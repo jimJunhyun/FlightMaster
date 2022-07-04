@@ -33,26 +33,37 @@ public class ShopperButtons : MonoBehaviour
 		disabler = GetComponent<ButtonDisabler>();
 		for (int i = 0; i <= 3; ++i)
 		{
+			
 			ShopButtons b = new ShopButtons();
-			if(SaveManager.Load() != null)
+			b.CostMult = 1;
+			b.MaxLevel = -1;
+			b.CostMult = 1;
+			b.OnLevelUp = LevelUps[i];
+			if (i == 2)
+			{
+				b.CostMult = 3;
+				b.MaxLevel = 8;
+			}
+			if (SaveManager.Load() != null)
 			{
 				b.Level = SaveManager.Load(3+i);
+				
 			}
 			else
 			{
 				b.Level = 1;
 			}
-			b.CostMult = 1;
-			b.MaxLevel = -1;
-			b.CostMult = 1;
-			b.OnLevelUp = LevelUps[i];
-			if(i == 2)
-			{
-				b.CostMult = 3;
-				b.MaxLevel = 8;
-			}
+			
 			Buttons.Add(b);
 			CostTxts[i].text = $"Cost : {Buttons[i].Cost}";
+		}
+		for (int i = 0; i < Buttons.Count; i++)
+		{
+			if (Buttons[i].MaxLevel != -1 && Buttons[i].Level >= Buttons[i].MaxLevel)
+			{
+
+				disabler.Disabler(i);
+			}
 		}
 		Debug.Log("AWAKESHOP");
 	}
@@ -61,12 +72,10 @@ public class ShopperButtons : MonoBehaviour
 	{
 		if(Random.Range(0,2) == 0)
 		{
-			Debug.Log("Success" + amount * 2);
 			GoldCtrl.GoldAmount += amount * 2;
 		}
 		else
 		{
-			Debug.Log("Fail" + amount);
 
 		}
 	}
@@ -100,6 +109,7 @@ public class ShopperButtons : MonoBehaviour
 		{
 			ShopButtons b = Buttons[i];
 			b.Level = SaveManager.Load(3 + i);
+			
 			Buttons[i] = b;
 		}
 	}

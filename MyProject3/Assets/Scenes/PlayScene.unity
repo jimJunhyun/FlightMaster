@@ -1108,7 +1108,6 @@ GameObject:
   - component: {fileID: 439630458}
   - component: {fileID: 439630457}
   - component: {fileID: 439630456}
-  - component: {fileID: 439630459}
   m_Layer: 5
   m_Name: AspdUp
   m_TagString: Untagged
@@ -1232,19 +1231,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439630454}
   m_CullTransparentMesh: 1
---- !u!114 &439630459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439630454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07952e226bbea654cbe923626a07c637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: []
 --- !u!1 &446308040
 GameObject:
   m_ObjectHideFlags: 0
@@ -5360,49 +5346,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722240192}
   m_CullTransparentMesh: 1
---- !u!1 &1733848535
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1733848537}
-  - component: {fileID: 1733848536}
-  m_Layer: 0
-  m_Name: SaveDataReseter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1733848536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733848535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7549ed2262c31b041963d9096d756265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1733848537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733848535}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741569852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5999,7 +5942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObj:
   - {fileID: -2492616554859838558, guid: de4ec43e6d68f6a4c90028759e21f486, type: 3}
-  poolAmount: 70
+  poolAmount: 150
   isRandom: 0
 --- !u!4 &1849546332
 Transform:

@@ -9,6 +9,13 @@ public class SaveManager : MonoBehaviour
 		StartCoroutine(AutoSaver());
 	}
 
+	private void Update()
+	{
+		Save();
+		Application.Quit();
+	}
+
+
 	IEnumerator AutoSaver()
 	{
 		while (true)

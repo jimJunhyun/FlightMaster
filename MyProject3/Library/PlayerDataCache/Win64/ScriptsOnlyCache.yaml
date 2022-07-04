@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - GoldCtrl
     - GoldObj
     - HardFollow
+    - HelpOnOff
     - IncreaseCTxt
     - IncreaseGTxt
     - LevelManager
@@ -15,7 +16,6 @@ ScriptsOnlyBuild:
     - PlayerDamage
     - PoolObject
     - Pooler
-    - ResetSave
     - SaveManager
     - SceneStarter
     - ScoreManager
@@ -190,8 +190,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3670}
     - Class: 114
-      Script: {instanceID: 3966}
-    - Class: 114
       Script: {instanceID: 4194}
     - Class: 114
       Script: {instanceID: 4624}
@@ -202,49 +200,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5682}
     - Class: 114
-      Script: {instanceID: 5872}
+      Script: {instanceID: 5874}
     - Class: 114
-      Script: {instanceID: 5902}
+      Script: {instanceID: 5904}
     - Class: 114
-      Script: {instanceID: 6018}
+      Script: {instanceID: 6020}
     - Class: 114
-      Script: {instanceID: 6028}
+      Script: {instanceID: 6030}
     - Class: 114
-      Script: {instanceID: 6052}
+      Script: {instanceID: 6054}
     - Class: 114
-      Script: {instanceID: 6100}
+      Script: {instanceID: 6102}
     - Class: 114
-      Script: {instanceID: 6132}
+      Script: {instanceID: 6134}
     - Class: 114
-      Script: {instanceID: 6604}
+      Script: {instanceID: 6606}
     - Class: 114
-      Script: {instanceID: 6746}
+      Script: {instanceID: 6748}
     - Class: 114
-      Script: {instanceID: 6798}
+      Script: {instanceID: 6800}
     - Class: 114
-      Script: {instanceID: 6972}
+      Script: {instanceID: 6974}
     - Class: 114
-      Script: {instanceID: 7050}
+      Script: {instanceID: 7052}
     - Class: 114
-      Script: {instanceID: 7260}
+      Script: {instanceID: 7262}
     - Class: 114
-      Script: {instanceID: 7346}
+      Script: {instanceID: 7348}
     - Class: 114
-      Script: {instanceID: 7364}
+      Script: {instanceID: 7366}
     - Class: 114
-      Script: {instanceID: 7516}
+      Script: {instanceID: 7520}
     - Class: 114
-      Script: {instanceID: 7728}
+      Script: {instanceID: 7732}
     - Class: 114
-      Script: {instanceID: 8112}
+      Script: {instanceID: 8116}
     - Class: 114
-      Script: {instanceID: 8770}
+      Script: {instanceID: 8774}
     - Class: 114
-      Script: {instanceID: 9032}
+      Script: {instanceID: 9036}
     - Class: 114
-      Script: {instanceID: 9102}
+      Script: {instanceID: 9106}
     - Class: 114
-      Script: {instanceID: 9326}
+      Script: {instanceID: 9330}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -341,61 +339,63 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5254}
     - Class: 114
-      Script: {instanceID: 5872}
+      Script: {instanceID: 5722}
     - Class: 114
-      Script: {instanceID: 6052}
+      Script: {instanceID: 5874}
     - Class: 114
-      Script: {instanceID: 6070}
+      Script: {instanceID: 6054}
     - Class: 114
-      Script: {instanceID: 6132}
+      Script: {instanceID: 6072}
     - Class: 114
-      Script: {instanceID: 6146}
+      Script: {instanceID: 6134}
     - Class: 114
-      Script: {instanceID: 6370}
+      Script: {instanceID: 6148}
     - Class: 114
       Script: {instanceID: 6372}
     - Class: 114
-      Script: {instanceID: 6396}
+      Script: {instanceID: 6374}
     - Class: 114
-      Script: {instanceID: 6656}
+      Script: {instanceID: 6398}
     - Class: 114
-      Script: {instanceID: 6798}
+      Script: {instanceID: 6658}
     - Class: 114
-      Script: {instanceID: 6962}
+      Script: {instanceID: 6800}
     - Class: 114
-      Script: {instanceID: 6972}
+      Script: {instanceID: 6964}
     - Class: 114
-      Script: {instanceID: 7052}
+      Script: {instanceID: 6974}
     - Class: 114
-      Script: {instanceID: 7060}
+      Script: {instanceID: 7054}
     - Class: 114
-      Script: {instanceID: 7186}
+      Script: {instanceID: 7062}
     - Class: 114
-      Script: {instanceID: 7230}
+      Script: {instanceID: 7188}
     - Class: 114
-      Script: {instanceID: 7280}
+      Script: {instanceID: 7232}
     - Class: 114
-      Script: {instanceID: 7364}
+      Script: {instanceID: 7282}
     - Class: 114
-      Script: {instanceID: 7380}
+      Script: {instanceID: 7366}
     - Class: 114
-      Script: {instanceID: 7500}
+      Script: {instanceID: 7382}
     - Class: 114
-      Script: {instanceID: 7644}
+      Script: {instanceID: 7434}
     - Class: 114
-      Script: {instanceID: 7770}
+      Script: {instanceID: 7504}
     - Class: 114
-      Script: {instanceID: 7828}
+      Script: {instanceID: 7648}
     - Class: 114
-      Script: {instanceID: 8558}
+      Script: {instanceID: 7774}
     - Class: 114
-      Script: {instanceID: 8916}
+      Script: {instanceID: 7832}
     - Class: 114
-      Script: {instanceID: 9102}
+      Script: {instanceID: 8562}
     - Class: 114
-      Script: {instanceID: 9222}
+      Script: {instanceID: 8920}
     - Class: 114
-      Script: {instanceID: 25094}
+      Script: {instanceID: 9106}
+    - Class: 114
+      Script: {instanceID: 9226}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1297,6 +1297,12 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneStarter
+  - hash:
+      serializedVersion: 2
       Hash: 4a639215e29265dd99e4fed19e3fa9f4
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1691,6 +1697,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 6828bbffeb8926a349cf0b0ce3411900
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HelpOnOff
   - hash:
       serializedVersion: 2
       Hash: 23066ceca838af0cf02e00e3cf5155c1
@@ -2141,12 +2153,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXRaycastBinder
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SceneStarter
   platform: 19
   scenePathNames:
   - Assets/Scenes/StartScene.unity

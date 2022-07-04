@@ -24,7 +24,7 @@ public class ShootBullet : MonoBehaviour
 		mousePosBuffer = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
 		direction = new Vector3(0,0, aimDist);
 		myPlane = transform.GetComponentInParent<PlaneCtrl>();
-		StartCoroutine(DelayShootAuto(gap));
+		StartCoroutine(DelayShootAuto());
 	}
 
 	private void Update()
@@ -45,7 +45,7 @@ public class ShootBullet : MonoBehaviour
 		transform.LookAt(direction);
 	}
 
-	IEnumerator DelayShootAuto(float gap)
+	IEnumerator DelayShootAuto()
 	{
 		while (true)
 		{
