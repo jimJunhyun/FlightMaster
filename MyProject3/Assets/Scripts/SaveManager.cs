@@ -11,8 +11,13 @@ public class SaveManager : MonoBehaviour
 
 	private void Update()
 	{
-		Save();
-		Application.Quit();
+		
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Save();
+			Application.Quit();
+		}
+		
 	}
 
 

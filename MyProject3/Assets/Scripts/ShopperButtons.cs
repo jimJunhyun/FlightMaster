@@ -42,7 +42,7 @@ public class ShopperButtons : MonoBehaviour
 			if (i == 2)
 			{
 				b.CostMult = 3;
-				b.MaxLevel = 8;
+				b.MaxLevel = 6;
 			}
 			if (SaveManager.Load() != null)
 			{

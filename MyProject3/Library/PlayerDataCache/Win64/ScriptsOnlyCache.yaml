@@ -2157,4 +2157,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/StartScene.unity
   - Assets/Scenes/PlayScene.unity
-  playerPath: C:/Users/user/Desktop/Games/MyProject3.exe
+  playerPath: C:/Users/user/Desktop/Games/FlightMaster/MyProject3.exe

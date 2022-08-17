@@ -5942,7 +5942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObj:
   - {fileID: -2492616554859838558, guid: de4ec43e6d68f6a4c90028759e21f486, type: 3}
-  poolAmount: 150
+  poolAmount: 200
   isRandom: 0
 --- !u!4 &1849546332
 Transform:
